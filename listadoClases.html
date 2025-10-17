@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Listado de Clases - Cuerpo Sano</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {--verde-1:#0f766e;--verde-2:#0891b2;--panel-bg:#fff;--shadow:0 6px 20px rgba(0,0,0,0.1);}
+    *{box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+    body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;background:linear-gradient(135deg,#c8f0e0,#d9ecf5);}
+    .panel{background:var(--panel-bg);padding:40px;border-radius:20px;box-shadow:var(--shadow);width:80%;max-width:700px;}
+    h1{color:var(--verde-1);text-align:center;margin-bottom:20px;}
+    table{width:100%;border-collapse:collapse;margin-bottom:20px;}
+    th,td{padding:10px 12px;border-bottom:1px solid #ccc;text-align:left;}
+    th{background-color:var(--verde-1);color:white;}
+    tr:hover{background-color:#f3f3f3;}
+    a{display:inline-block;text-decoration:none;background:linear-gradient(90deg,#9e9e9e,#6b7280);color:white;padding:10px 16px;border-radius:10px;font-weight:bold;transition:0.3s;}
+    a:hover{opacity:.9;transform:scale(1.03);}
+    footer{text-align:center;margin-top:15px;font-size:.85em;color:#666;}footer span{color:var(--verde-1);font-weight:600;}
+  </style>
+</head>
+<body>
+  <div class="panel">
+    <h1>📋 Listado de Clases</h1>
+    <table id="tablaClases">
+      <thead>
+        <tr>
+          <th>Clase</th><th>Actividad</th><th>Entrenador</th><th>Horario</th><th>Capacidad</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <a href="clases.html">⬅️ Volver</a>
+    <footer>Sistema <span>Cuerpo Sano</span> © 2025</footer>
+  </div>
+
+  <script>
+    const clases = [
+      {nombre:"Yoga Matutino",actividad:"Yoga",entrenador:"Roberto Silva",horario:"07:00 - 08:00",capacidad:15},
+      {nombre:"CrossFit Intenso",actividad:"CrossFit",entrenador:"Ana Martínez",horario:"18:00 - 18:45",capacidad:20},
+      {nombre:"Zumba Express",actividad:"Zumba",entrenador:"Miguel Torres",horario:"18:30 - 19:30",capacidad:30}
+    ];
+
+    const tbody = document.querySelector('#tablaClases tbody');
+    clases.forEach(c=>{
+      tbody.innerHTML += `<tr>
+        <td>${c.nombre}</td>
+        <td>${c.actividad}</td>
+        <td>${c.entrenador}</td>
+        <td>${c.horario}</td>
+        <td>${c.capacidad}</td>
+      </tr>`;
+    });
+  </script>
+</body>
+</html>
