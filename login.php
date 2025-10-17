@@ -1,4 +1,18 @@
 <?php
+$servername = "localhost"; // Puede ser 'localhost' o la IP del servidor
+$username = "tu_usuario";
+$password = "tu_contraseña";
+$dbname = "nombre_de_la_base_de_datos";
+
+// Crear la conexión
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Verificar la conexión
+if (!$conn) {
+  die("La conexión falló: " . mysqli_connect_error());
+}
+echo "Conexión exitosa";
+
 session_start(); // Inicia la sesión al principio de todo
 
 header('Content-Type: application/json');
@@ -44,4 +58,5 @@ try {
     http_response_code(500);
     echo json_encode(['success' => false, 'error' => 'Error en la base de datos: ' . $e->getMessage()]);
 }
+
 ?>
